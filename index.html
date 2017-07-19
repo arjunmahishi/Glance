@@ -11,7 +11,9 @@
 	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
 		<a href="https://www.fnplus.xyz/" target="_blank">FnPlus</a>
 		<br/>
-	</div><script>
+	</div>
+	<script src="js/custom/render.js"></script>
+	<script>
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
 	//////////////////////////////////////////////////////////////////////////////////
@@ -111,8 +113,8 @@
 	var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type : 'pattern',
 		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.hiro'
-		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.kanji'
-		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/srm.patt'
+		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.kanji'
+		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/srm.patt'
 	})
 
 	// build a smoothedControls
@@ -130,45 +132,9 @@
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	var arWorldRoot = smoothedRoot
-
-	// add a torus knot	
-	// var geometry	= new THREE.CubeGeometry(1,1,1);
-	// var material	= new THREE.MeshNormalMaterial({
-	// 	transparent : true,
-	// 	opacity: 0.5,
-	// 	side: THREE.DoubleSide
-	// }); 
-	// var mesh	= new THREE.Mesh( geometry, material );
-	// mesh.position.y	= geometry.parameters.height/2
-	// arWorldRoot.add( mesh );
-
-	var loader = new THREE.FontLoader();
-	var text = "Welcome to\nSRM University\nYou are\nat BMS block\n        Canteen ->\n        <- TRP";
-
-	loader.load( 'fonts/Roboto_Regular.json', function ( font ) {
-
-		var geometry = new THREE.TextGeometry( text, {
-			font: font,
-			size: 0.1,
-			height: 0.1,
-		} );
-
-		// var material	= new THREE.MeshNormalMaterial(); 
-		var material	= new THREE.MeshNormalMaterial({
-			transparent : true,
-			opacity: 1,
-			side: THREE.DoubleSide
-		}); 
-		var mesh	= new THREE.Mesh( geometry, material );
-		mesh.position.x = -0.5;
-		mesh.position.z = -0.5;
-		mesh.rotation.x = -1.5;
-		arWorldRoot.add( mesh );
-	} );
+	renderBox(smoothedRoot);
+	renderText("TEST", smoothedRoot);
 	
-	// var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
-
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
