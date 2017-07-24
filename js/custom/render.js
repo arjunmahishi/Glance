@@ -15,7 +15,11 @@ function renderText(text, root){
 			opacity: 1,
 			side: THREE.DoubleSide
 		}); 
-		var mesh	= new THREE.Mesh( geometry, material );
+
+		var planeMaterial = new THREE.ShadowMaterial();
+		planeMaterial.opacity = 0.2;
+
+		var mesh	= new THREE.Mesh( geometry, planeMaterial );
 		mesh.position.x = -0.2;
 		mesh.rotation.x = -1.5;
 		root.add( mesh );
@@ -32,4 +36,16 @@ function renderBox(root){
 	var mesh	= new THREE.Mesh( geometry, material );
 	mesh.position.y	= geometry.parameters.height/2
 	root.add( mesh );
+}
+
+function renderSprite(root){
+	var spriteMap = new THREE.TextureLoader().load( "jarvis.png" );
+	var spriteMaterial = new THREE.SpriteMaterial({ 
+		map: spriteMap, 
+		color: 0xffffff, 
+		opacity: 0.5 
+	});
+	var sprite = new THREE.Sprite( spriteMaterial );
+	root.add( sprite );
+	return sprite;
 }

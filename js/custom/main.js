@@ -1,4 +1,5 @@
 function main(){
-    renderBox(smoothedRoot);
-	renderText("TEST", smoothedRoot);
+    var sprite = renderSprite(smoothedRoot);
+	// renderText("Sample\ntext", sprite);    
+    // renderBox(smoothedRoot);
 }
