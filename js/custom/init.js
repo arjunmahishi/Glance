@@ -6,7 +6,7 @@ THREEx.ArToolkitContext.baseURL = '/';
 
 	// init renderer
 	var renderer	= new THREE.WebGLRenderer({
-		// antialias	: true,
+		antialias	: true,
 		alpha: true
 	});
 	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
@@ -15,7 +15,8 @@ THREEx.ArToolkitContext.baseURL = '/';
 	renderer.domElement.style.position = 'absolute'
 	renderer.domElement.style.top = '0px'
 	renderer.domElement.style.left = '0px'
-	document.body.appendChild( renderer.domElement );
+	// document.body.appendChild( renderer.domElement );
+	document.querySelector("#view-finder").appendChild(renderer.domElement);
 
 	// array of functions for the rendering loop
 	var onRenderFcts= [];
@@ -124,7 +125,8 @@ THREEx.ArToolkitContext.baseURL = '/';
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
 	var stats = new Stats();
-	document.body.appendChild( stats.dom );
+	// document.body.appendChild( stats.dom );
+	document.querySelector("#view-finder").appendChild(stats.dom);
 	// render the scene
 	onRenderFcts.push(function(){
 		renderer.render( scene, camera );
