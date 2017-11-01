@@ -1,5 +1,5 @@
 function main(){
     var sprite = renderSprite(smoothedRoot);
-	renderText("Sample\ntext", sprite);    
+	renderText("Full description \nof the item", sprite);    
     // renderBox(smoothedRoot);
 }
