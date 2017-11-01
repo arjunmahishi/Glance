@@ -3,29 +3,61 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<!-- three.js library -->
-	<script src='js/three.min.js'></script>
-	<script src="js/stats.min.js"></script>
-	<!-- ar.js -->
-	<script src="js/ar.min.js"></script>
 
 	<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="./manifest.json">
 
-	<title>webAR</title>
+	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<title>Glance AR</title>
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-		<h2>Minor project on WebAR</h2>
-		<br/>
-		<div id="view-finder"></div>
-	</div>
-</body>
+<style type="text/css">
+	
+	.scan{
+		margin-top: 30rem;
+	}
 
-<script src="js/custom/render.js"></script>
-<script src="js/custom/main.js"></script>
-<script src="js/custom/init.js"></script>
+	.btn-scan{
+
+	}
+
+	nav{
+		background: #673AB7;
+	    box-shadow: 0px 0px 5px #000;
+	    border-radius: 2%;
+	    height: 5rem;
+	}
+
+	.nav-title{
+        color: #fff;
+	    margin-left: 16px;
+	    padding-top: 5px;
+	}
+
+	.btn-scan{
+	    background-color: #673ab7;
+	    color: #fff;
+	    font-size: 2rem;
+	}
+
+	.btn:focus, .btn:hover {
+	    color: #fff;
+	    text-decoration: none;
+	}
+
+</style>
+
+<nav>
+	<div class="nav-title"><h4>Glance AR</h4></div>
+</nav>
+
+<body>
+
+	<center class="scan">
+		<a href="app.html"><button class="btn btn-scan">SCAN</button></a>
+	</center>
+</body>
 
 </html>

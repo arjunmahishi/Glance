@@ -17,7 +17,7 @@ function renderText(text, root){
 		}); 
 
 		var planeMaterial = new THREE.ShadowMaterial();
-		planeMaterial.opacity = 0.2;
+		planeMaterial.opacity = 1;
 
 		var mesh	= new THREE.Mesh( geometry, planeMaterial );
 		mesh.position.x = -0.2;
@@ -39,9 +39,7 @@ function renderBox(root){
 }
 
 function renderSprite(root){
-	var spriteMap = new THREE.TextureLoader().load( "jarvis.png" );
 	var spriteMaterial = new THREE.SpriteMaterial({ 
-		map: spriteMap, 
 		color: 0xffffff, 
 		opacity: 0.5 
 	});
