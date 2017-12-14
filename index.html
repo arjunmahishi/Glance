@@ -63,4 +63,17 @@
 	</center>
 </body>
 
+<script type="text/javascript">
+	
+	if ('serviceWorker' in navigator) {
+	  window.addEventListener('load', function() {
+	    navigator.serviceWorker.register('/service-worker.js');
+	    console.log("service worker registered."); 
+	  });
+	}else {
+	    console.log("service worker could not be registered.") 
+	}
+	
+</script>
+
 </html>
