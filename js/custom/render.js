@@ -56,8 +56,9 @@ const renderObject = (root, objectURL) =>{
 
 const renderScene = (root, sceneURL) =>{
 	new THREE.JSONLoader().load(sceneURL, ( geometry, materials ) =>{
-		var material = materials[ 0 ];
+		var material = materials[0];
 		var object = new THREE.Mesh(geometry, material);
+		console.log('scene', object);
 		root.add( object );
 	}, err =>{
 		console.log(err)
