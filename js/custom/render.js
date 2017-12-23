@@ -1,4 +1,4 @@
-function renderText(text, root){
+const renderText = (text, root) =>{
     var loader = new THREE.FontLoader();
 
 	loader.load( 'fonts/Roboto_Regular.json', function ( font ) {
@@ -26,7 +26,7 @@ function renderText(text, root){
 	} );
 }
 
-function renderBox(root){
+const renderBox = root =>{
 	var geometry	= new THREE.CubeGeometry(1,1,1);
 	var material	= new THREE.MeshNormalMaterial({
 		transparent : true,
@@ -38,7 +38,7 @@ function renderBox(root){
 	root.add( mesh );
 }
 
-function renderSprite(root){
+const renderSprite = root =>{
 	var spriteMaterial = new THREE.SpriteMaterial({ 
 		color: 0xffffff, 
 		opacity: 0.5 
@@ -46,4 +46,20 @@ function renderSprite(root){
 	var sprite = new THREE.Sprite( spriteMaterial );
 	root.add( sprite );
 	return sprite;
+}
+
+const renderObject = (root, objectURL) =>{
+	new THREE.ObjectLoader().load(objectURL, obj =>{
+		root.add(obj);
+	});
+}
+
+const renderScene = (root, sceneURL) =>{
+	new THREE.JSONLoader().load(sceneURL, ( geometry, materials ) =>{
+		var material = materials[ 0 ];
+		var object = new THREE.Mesh(geometry, material);
+		root.add( object );
+	}, err =>{
+		console.log(err)
+	});
 }

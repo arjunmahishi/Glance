@@ -29,7 +29,8 @@ THREEx.ArToolkitContext.baseURL = '/';
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// Create a camera
-	var camera = new THREE.Camera();
+	// var camera = new THREE.Camera();
+	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
 	scene.add(camera);
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -106,7 +107,13 @@ THREEx.ArToolkitContext.baseURL = '/';
 		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/srm.patt'
 	})
 
-	console.log(artoolkitMarker.parameters.patternUrl);
+
+	let markerName = artoolkitMarker.parameters.patternUrl.split("/");
+
+
+	console.log("Using ", markerName[markerName.length-1]);
+
+	document.querySelector("#marker").innerHTML = markerName[markerName.length-1];
 
 	// build a smoothedControls
 	var smoothedRoot = new THREE.Group()
@@ -124,7 +131,52 @@ THREEx.ArToolkitContext.baseURL = '/';
 	//////////////////////////////////////////////////////////////////////////////////
 
 	main();
-	
+	console.log("scene: ", scene);
+
+
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//		raycaster
+	//////////////////////////////////////////////////////////////////////////////////
+
+	var raycaster = new THREE.Raycaster();
+	var mouse = new THREE.Vector2();
+
+	function onMouseMove( event ) {
+
+		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+		console.log("click: ", mouse);
+
+	}
+
+	function render() {
+
+		raycaster.setFromCamera( mouse, camera );
+
+		// calculate objects intersecting the picking ray
+		var intersects = raycaster.intersectObjects( scene.children );
+
+		console.log("intersects: ", intersects)
+
+		for ( var i = 0; i < intersects.length; i++ ) {
+
+			intersects[ i ].object.material.color.set( 0xff0000 );
+
+		}
+
+		// renderer.render( smoothedRoot, camera );
+
+	}
+
+	window.addEventListener( 'mousemove', onMouseMove, false );
+
+	window.requestAnimationFrame(render);
+
+
+
+
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
@@ -133,6 +185,20 @@ THREEx.ArToolkitContext.baseURL = '/';
 	document.querySelector("#view-finder").appendChild(stats.dom);
 	// render the scene
 	onRenderFcts.push(function(){
+
+		raycaster.setFromCamera( mouse, camera );
+
+		// calculate objects intersecting the picking ray
+		var intersects = raycaster.intersectObjects( scene.children );
+
+		for ( var i = 0; i < intersects.length; i++ ) {
+
+			intersects[ i ].object.material.color.set( 0xff0000 );
+
+		}
+
+		// renderer.render( smoothedRoot, camera );
+
 		renderer.render( scene, camera );
 		stats.update();
 	})

@@ -1,0 +1,83 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "E80D9EC5-D722-4812-8226-5F355EAC9B96",
+			"type": "PlaneGeometry",
+			"width": 1000,
+			"height": 1000,
+			"widthSegments": 1,
+			"heightSegments": 1
+		}],
+	"materials": [
+		{
+			"uuid": "3A9449D2-62DB-4BB4-ABBD-6F3F9D46DE1A",
+			"type": "MeshStandardMaterial",
+			"color": 5465019,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		},
+		{
+			"uuid": "F5361474-F5F1-412F-8D99-3699B868092D",
+			"type": "SpriteMaterial",
+			"color": 16777215,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true
+		}],
+	"object": {
+		"uuid": "3741222A-BD8F-401C-A5D2-5A907E891896",
+		"type": "Scene",
+		"name": "Scene",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "05B57416-1BE5-4A96-BB05-9D9CD112D52B",
+				"type": "Mesh",
+				"name": "Ground",
+				"matrix": [1,0,0,0,0,0.000796,-1,0,0,1,0.000796,0,0,-0.5,0,1],
+				"geometry": "E80D9EC5-D722-4812-8226-5F355EAC9B96",
+				"material": "3A9449D2-62DB-4BB4-ABBD-6F3F9D46DE1A"
+			},
+			{
+				"uuid": "0A3CB873-07E6-4EEB-830B-68192504111B",
+				"type": "Sprite",
+				"name": "Particle",
+				"matrix": [0.4,0,0,0,0,0.4,0,0,0,0,0.4,0,0,0,0,1],
+				"material": "F5361474-F5F1-412F-8D99-3699B868092D"
+			},
+			{
+				"uuid": "40E5CDA4-0E39-4265-9293-3E9EC3207F61",
+				"type": "PointLight",
+				"name": "PointLight",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,11.828879,0,1],
+				"color": 16777215,
+				"intensity": 1,
+				"distance": 0,
+				"decay": 1,
+				"shadow": {
+					"camera": {
+						"uuid": "9DA5DD99-A370-493B-B4F4-5DF85BA3F90D",
+						"type": "PerspectiveCamera",
+						"fov": 90,
+						"zoom": 1,
+						"near": 0.5,
+						"far": 500,
+						"focus": 10,
+						"aspect": 1,
+						"filmGauge": 35,
+						"filmOffset": 0
+					}
+				}
+			}],
+		"background": 11184810
+	}
+}
