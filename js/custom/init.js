@@ -101,9 +101,9 @@ THREEx.ArToolkitContext.baseURL = '/';
 	var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type : 'pattern',
 		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.hiro'
-		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.kanji'
+		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/patt.kanji'
 		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/111.patt'
-		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/fnp.patt'
+		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/fnp.patt'
 		// patternUrl : THREEx.ArToolkitContext.baseURL + 'data/srm.patt'
 	})
 

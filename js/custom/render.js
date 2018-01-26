@@ -48,13 +48,9 @@ const renderSprite = root =>{
 	return sprite;
 }
 
-const renderObject = (root, objectURL) =>{
-	new THREE.ObjectLoader().load(objectURL, obj =>{
-		root.add(obj);
-	});
-}
+const renderObject = (root, objectURL) => new THREE.ObjectLoader().load(objectURL, obj => root.add(obj));
 
-const renderScene = (root, sceneURL) =>{
+const renderScene = (root, sceneURL) => {
 	new THREE.JSONLoader().load(sceneURL, ( geometry, materials ) =>{
 		var material = materials[0];
 		var object = new THREE.Mesh(geometry, material);
